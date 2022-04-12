@@ -51,7 +51,7 @@ class BookingListTest(APITestCase):
 
 	def test_list(self):
 		response = self.client.get(reverse('bookings-list'))
-		bookings = Booking.objects.filter(date__gt=date.today())
+		bookings = Booking.objects.all()
 
 		self.assertEqual(len(response.data), bookings.count())
 		booking = bookings[0]
